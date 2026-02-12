@@ -1,28 +1,30 @@
-import { NextResponse } from 'next/server';
-import { getCategories, addCategory } from '@/lib/data';
+import { NextResponse } from "next/server";
+import { db } from "@/db";
+import { categories } from "@/db/schema";
+import { desc, eq } from "drizzle-orm";
 
 export async function GET() {
-  const categories = getCategories();
-  return NextResponse.json(categories);
+  try {
+    const data = await db.select().from(categories).orderBy(desc(categories.createdAt));
+    return NextResponse.json(data);
+  } catch (error) {
+    return NextResponse.json({ error: "Failed to fetch categories" }, { status: 500 });
+  }
 }
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, image, slug } = body;
+    const { name, slug, image } = body;
 
-    if (!name) {
-      return NextResponse.json({ error: 'Name is required' }, { status: 400 });
-    }
-
-    const category = addCategory({
+    const newCategory = await db.insert(categories).values({
       name,
-      image: image || '',
       slug: slug || name.toLowerCase().replace(/\s+/g, '-'),
-    });
+      image,
+    }).returning();
 
-    return NextResponse.json(category, { status: 201 });
-  } catch {
-    return NextResponse.json({ error: 'Invalid request body' }, { status: 400 });
+    return NextResponse.json(newCategory[0]);
+  } catch (error) {
+    return NextResponse.json({ error: "Failed to create category" }, { status: 500 });
   }
 }

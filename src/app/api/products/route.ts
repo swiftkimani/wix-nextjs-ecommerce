@@ -1,33 +1,32 @@
-import { NextResponse } from 'next/server';
-import { getProducts, addProduct } from '@/lib/data';
+import { NextResponse } from "next/server";
+import { db } from "@/db";
+import { products } from "@/db/schema";
+import { desc } from "drizzle-orm";
 
 export async function GET() {
-  const products = getProducts();
-  return NextResponse.json(products);
+  try {
+    const data = await db.select().from(products).orderBy(desc(products.createdAt));
+    return NextResponse.json(data);
+  } catch (error) {
+    return NextResponse.json({ error: "Failed to fetch products" }, { status: 500 });
+  }
 }
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, description, price, currency, image1, image2, url, featured } = body;
+    const { name, description, price, currency, image1 } = body;
 
-    if (!name || !price) {
-      return NextResponse.json({ error: 'Name and price are required' }, { status: 400 });
-    }
-
-    const product = addProduct({
+    const newProduct = await db.insert(products).values({
       name,
-      description: description || '',
-      price: Number(price),
-      currency: currency || 'Ksh',
-      image1: image1 || '',
-      image2: image2 || '',
-      url: url || '/test',
-      featured: featured ?? true,
-    });
+      description,
+      price: price.toString(), // Ensure decimal is string for Drizzle
+      currency: currency || 'KSh',
+      image1,
+    }).returning();
 
-    return NextResponse.json(product, { status: 201 });
-  } catch {
-    return NextResponse.json({ error: 'Invalid request body' }, { status: 400 });
+    return NextResponse.json(newProduct[0]);
+  } catch (error) {
+    return NextResponse.json({ error: "Failed to create product" }, { status: 500 });
   }
 }

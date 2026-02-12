@@ -1,40 +1,68 @@
-import { NextResponse } from 'next/server';
-import { updateProduct, deleteProduct, getProductById } from '@/lib/data';
+import { NextResponse, NextRequest } from 'next/server';
+import { db } from "@/db";
+import { products } from "@/db/schema";
+import { eq } from "drizzle-orm";
+
+export async function GET(
+  _request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+    try {
+        const { id } = await params;
+        const product = await db.select().from(products).where(eq(products.id, id));
+        if (product.length === 0) {
+            return NextResponse.json({ error: 'Product not found' }, { status: 404 });
+        }
+        return NextResponse.json(product[0]);
+    } catch (error) {
+        return NextResponse.json({ error: 'Failed to fetch product' }, { status: 500 });
+    }
+}
 
 export async function PUT(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
-    const updated = updateProduct(params.id, body);
-    if (!updated) {
+    const { name, description, price, currency, image1 } = body;
+
+    const updated = await db.update(products)
+      .set({
+        name,
+        description,
+        price: price.toString(),
+        currency: currency || 'KSh',
+        image1,
+      })
+      .where(eq(products.id, id))
+      .returning();
+
+    if (updated.length === 0) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
     }
-    return NextResponse.json(updated);
-  } catch {
-    return NextResponse.json({ error: 'Invalid request body' }, { status: 400 });
+    return NextResponse.json(updated[0]);
+  } catch (error) {
+    return NextResponse.json({ error: 'Failed to update product' }, { status: 500 });
   }
 }
 
 export async function DELETE(
-  _request: Request,
-  { params }: { params: { id: string } }
+  _request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const deleted = deleteProduct(params.id);
-  if (!deleted) {
-    return NextResponse.json({ error: 'Product not found' }, { status: 404 });
-  }
-  return NextResponse.json({ success: true });
-}
+  try {
+    const { id } = await params;
+    const deleted = await db.delete(products)
+      .where(eq(products.id, id))
+      .returning();
 
-export async function GET(
-  _request: Request,
-  { params }: { params: { id: string } }
-) {
-  const product = getProductById(params.id);
-  if (!product) {
-    return NextResponse.json({ error: 'Product not found' }, { status: 404 });
+    if (deleted.length === 0) {
+      return NextResponse.json({ error: 'Product not found' }, { status: 404 });
+    }
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    return NextResponse.json({ error: 'Failed to delete product' }, { status: 500 });
   }
-  return NextResponse.json(product);
 }
