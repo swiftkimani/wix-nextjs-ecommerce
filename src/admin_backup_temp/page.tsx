@@ -136,7 +136,6 @@ export default function AdminDashboard() {
                             src={product.image1}
                             alt={product.name}
                             className="product-thumb"
-                            className="product-thumb" // ERROR: Duplicate attribute? No, wait. Step 474 lines 137-141. It had className="product-thumb". I should be careful.
                           />
                         )}
                         <div>
