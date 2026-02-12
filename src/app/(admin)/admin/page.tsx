@@ -97,13 +97,13 @@ export default function AdminDashboard() {
 
         {/* Quick Actions */}
         <div style={{ display: 'flex', gap: 12, marginBottom: 32 }}>
-          <Link href="/admin/products" className="admin-btn admin-btn-primary">
+          <Link href="/products" className="admin-btn admin-btn-primary">
             📦 Manage Products
           </Link>
-          <Link href="/admin/categories" className="admin-btn admin-btn-secondary">
+          <Link href="/categories" className="admin-btn admin-btn-secondary">
             🏷️ Manage Categories
           </Link>
-          <Link href="/admin/slides" className="admin-btn admin-btn-secondary">
+          <Link href="/slides" className="admin-btn admin-btn-secondary">
             🖼️ Manage Slides
           </Link>
         </div>
@@ -112,7 +112,7 @@ export default function AdminDashboard() {
         <div className="admin-table-container admin-animate-in">
           <div className="admin-table-header">
             <h3>Recent Products</h3>
-            <Link href="/admin/products" className="admin-btn admin-btn-sm admin-btn-secondary">
+            <Link href="/products" className="admin-btn admin-btn-sm admin-btn-secondary">
               View All →
             </Link>
           </div>
@@ -135,7 +135,6 @@ export default function AdminDashboard() {
                           <img
                             src={product.image1}
                             alt={product.name}
-                            className="product-thumb"
                             className="product-thumb" // ERROR: Duplicate attribute? No, wait. Step 474 lines 137-141. It had className="product-thumb". I should be careful.
                           />
                         )}
@@ -157,7 +156,7 @@ export default function AdminDashboard() {
                     </td>
                     <td>
                       <Link
-                        href="/admin/products"
+                        href="/products"
                         className="admin-btn admin-btn-sm admin-btn-secondary"
                       >
                         Edit
@@ -171,7 +170,7 @@ export default function AdminDashboard() {
                     <div className="admin-empty">
                       <div className="empty-icon">📦</div>
                       <p>No products yet. Add your first product!</p>
-                      <Link href="/admin/products" className="admin-btn admin-btn-primary admin-btn-sm">
+                      <Link href="/products" className="admin-btn admin-btn-primary admin-btn-sm">
                         + Add Product
                       </Link>
                     </div>

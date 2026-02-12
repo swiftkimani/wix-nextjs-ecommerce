@@ -4,18 +4,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navItems = [
-  { href: "/admin", label: "Dashboard", icon: "📊" },
-  { href: "/admin/products", label: "Products", icon: "📦" },
-  { href: "/admin/categories", label: "Categories", icon: "🏷️" },
-  { href: "/admin/slides", label: "Slides", icon: "🖼️" },
-  { href: "/admin/settings", label: "Settings", icon: "⚙️" },
+  { href: "/", label: "Dashboard", icon: "📊" },
+  { href: "/products", label: "Products", icon: "📦" },
+  { href: "/categories", label: "Categories", icon: "🏷️" },
+  { href: "/slides", label: "Slides", icon: "🖼️" },
+  { href: "/settings", label: "Settings", icon: "⚙️" },
 ];
 
 export default function AdminSidebar() {
   const pathname = usePathname();
 
   const isActive = (href: string) => {
-    if (href === "/admin") return pathname === "/admin";
+    if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
   };
 
@@ -41,7 +41,7 @@ export default function AdminSidebar() {
 
       <div className="admin-sidebar-footer">
         <Link
-          href="/"
+          href="http://localhost:3000"
           className="admin-nav-item"
           target="_blank"
           rel="noopener"
