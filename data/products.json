@@ -1,0 +1,50 @@
+[
+  {
+    "id": "prod_1",
+    "name": "Blue Scooter",
+    "description": "A stylish blue scooter for urban commuting",
+    "price": 4500,
+    "currency": "Ksh",
+    "image1": "https://images.pexels.com/photos/21550488/pexels-photo-21550488/free-photo-of-blue-scooter-parked-by-a-wall.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    "image2": "https://images.pexels.com/photos/27425438/pexels-photo-27425438/free-photo-of-a-person-is-using-a-laptop-and-a-notebook.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    "url": "/test",
+    "featured": true,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "prod_2",
+    "name": "Laptop Sleeve",
+    "description": "Premium protective laptop sleeve",
+    "price": 2500,
+    "currency": "Ksh",
+    "image1": "https://images.pexels.com/photos/21550488/pexels-photo-21550488/free-photo-of-blue-scooter-parked-by-a-wall.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    "image2": "https://images.pexels.com/photos/27425438/pexels-photo-27425438/free-photo-of-a-person-is-using-a-laptop-and-a-notebook.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    "url": "/test",
+    "featured": true,
+    "createdAt": "2026-01-02T00:00:00.000Z"
+  },
+  {
+    "id": "prod_3",
+    "name": "Wireless Headphones",
+    "description": "Noise-cancelling wireless headphones",
+    "price": 3500,
+    "currency": "Ksh",
+    "image1": "https://images.pexels.com/photos/21550488/pexels-photo-21550488/free-photo-of-blue-scooter-parked-by-a-wall.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    "image2": "https://images.pexels.com/photos/27425438/pexels-photo-27425438/free-photo-of-a-person-is-using-a-laptop-and-a-notebook.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    "url": "/test",
+    "featured": true,
+    "createdAt": "2026-01-03T00:00:00.000Z"
+  },
+  {
+    "id": "prod_4",
+    "name": "Smart Watch",
+    "description": "Feature-rich smart watch with health tracking",
+    "price": 6500,
+    "currency": "Ksh",
+    "image1": "https://images.pexels.com/photos/21550488/pexels-photo-21550488/free-photo-of-blue-scooter-parked-by-a-wall.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    "image2": "https://images.pexels.com/photos/27425438/pexels-photo-27425438/free-photo-of-a-person-is-using-a-laptop-and-a-notebook.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    "url": "/test",
+    "featured": true,
+    "createdAt": "2026-01-04T00:00:00.000Z"
+  }
+]

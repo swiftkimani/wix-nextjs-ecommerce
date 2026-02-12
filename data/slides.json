@@ -1,0 +1,26 @@
+[
+  {
+    "id": "slide_1",
+    "title": "Summer Sales Collections",
+    "description": "Sale! Upto 50 Off!",
+    "img": "https://images.pexels.com/photos/26729111/pexels-photo-26729111/free-photo-of-back-view-of-a-woman-in-an-academic-dress.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "url": "/",
+    "bg": "bg-gradient-to-r from-yellow-50 to-pink-50"
+  },
+  {
+    "id": "slide_2",
+    "title": "Winter Sales Collections",
+    "description": "Sale! Upto 50 Off!",
+    "img": "https://images.pexels.com/photos/26729111/pexels-photo-26729111/free-photo-of-back-view-of-a-woman-in-an-academic-dress.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "url": "/",
+    "bg": "bg-gradient-to-r from-pink-50 to-blue-50"
+  },
+  {
+    "id": "slide_3",
+    "title": "Spring Sales Collections",
+    "description": "Sale! Upto 50 Off!",
+    "img": "https://images.pexels.com/photos/26729111/pexels-photo-26729111/free-photo-of-back-view-of-a-woman-in-an-academic-dress.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "url": "/",
+    "bg": "bg-gradient-to-r from-blue-50 to-yellow-50"
+  }
+]

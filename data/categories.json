@@ -1,0 +1,38 @@
+[
+  {
+    "id": "cat_1",
+    "name": "Electronics",
+    "image": "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "slug": "electronics"
+  },
+  {
+    "id": "cat_2",
+    "name": "Fashion",
+    "image": "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "slug": "fashion"
+  },
+  {
+    "id": "cat_3",
+    "name": "Home & Living",
+    "image": "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "slug": "home-living"
+  },
+  {
+    "id": "cat_4",
+    "name": "Sports",
+    "image": "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "slug": "sports"
+  },
+  {
+    "id": "cat_5",
+    "name": "Books",
+    "image": "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "slug": "books"
+  },
+  {
+    "id": "cat_6",
+    "name": "Accessories",
+    "image": "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "slug": "accessories"
+  }
+]
